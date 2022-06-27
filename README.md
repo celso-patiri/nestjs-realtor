@@ -1,6 +1,6 @@
 <div align="center">
 
-  <img src="https://image.pngaaa.com/622/2968622-middle.png" alt="Logo" width="200">
+  <img src="https://nestjs.com/img/logo-small.svg" alt="Logo" width="120">
   
   <h3 align="center">
      Mock Realtor App
@@ -10,6 +10,7 @@
   <div align="center">
 
    ![NestJS](https://img.shields.io/badge/nestjs-%23E0234E.svg?logo=nestjs&logoColor=white&style=for-the-badge)
+   ![Prisma](https://img.shields.io/badge/Prisma-3982CE?style=for-the-badge&logo=Prisma&logoColor=white)
    ![Postgres](https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white)
 
   </div>
