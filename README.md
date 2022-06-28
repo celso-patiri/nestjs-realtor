@@ -23,7 +23,7 @@
 ## What I Learned
   
   - The basics of Prisma
-  - Role based authorization and product key issuing
+  - Role based authorization
   - More about NestJS `Execution Context`, Reflection and metadata
   - Custom route handler decorators and `createParamDecorator`
   - NestJS `Interceptors` and the basics of [RxJS](https://rxjs.dev/) `Observables`
