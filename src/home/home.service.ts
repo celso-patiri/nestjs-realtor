@@ -34,7 +34,7 @@ interface UpdateHomeParams {
   propertyType?: PropertyType;
 }
 
-const homeSelect = {
+export const homeSelect = {
   id: true,
   address: true,
   city: true,
@@ -61,6 +61,8 @@ export class HomeService {
       },
       where: filters,
     });
+
+    if (!homes.length) throw new NotFoundException();
 
     return homes.map((home) => {
       const fetchedHome = { ...home, image: home.images[0].url };
@@ -158,6 +160,24 @@ export class HomeService {
         buyer_id: buyer.id,
         home_id: homeId,
         message,
+      },
+    });
+  }
+
+  async getMessagesByHome(homeId: number) {
+    return this.prismaService.message.findMany({
+      where: {
+        home_id: homeId,
+      },
+      select: {
+        message: true,
+        buyer: {
+          select: {
+            name: true,
+            phone: true,
+            email: true,
+          },
+        },
       },
     });
   }
