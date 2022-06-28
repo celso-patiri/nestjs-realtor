@@ -57,9 +57,9 @@ export class AuthService {
     return this.generateJwt(user.name, user.id);
   }
 
-  private async generateJwt(name: String, id: number) {
+  private generateJwt(name: String, id: number) {
     return jwt.sign({ name, id: id }, process.env.JWT_SECRET, {
-      expiresIn: 3600,
+      expiresIn: 3600000,
     });
   }
 

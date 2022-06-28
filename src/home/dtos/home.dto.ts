@@ -146,3 +146,9 @@ export class UpdateHomeDTO {
   @IsOptional()
   propertyType?: PropertyType;
 }
+
+export class InquireHomeDTO {
+  @IsString()
+  @IsNotEmpty()
+  message: string;
+}

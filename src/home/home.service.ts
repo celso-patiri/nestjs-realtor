@@ -1,6 +1,7 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { PropertyType } from '@prisma/client';
 import { PrismaService } from 'src/prisma/prisma.service';
+import { DecodedUser } from 'src/user/decorators/user.decorator';
 import { HomeResponseDTO, Image } from './dtos/home.dto';
 
 interface GetHomesParams {
@@ -147,5 +148,17 @@ export class HomeService {
     });
     if (!home) throw new NotFoundException();
     return home.realtor;
+  }
+
+  async inquire(buyer: DecodedUser, homeId: number, message: string) {
+    const realtor = await this.getRealterByHomeId(homeId);
+    return this.prismaService.message.create({
+      data: {
+        realtor_id: realtor.id,
+        buyer_id: buyer.id,
+        home_id: homeId,
+        message,
+      },
+    });
   }
 }
